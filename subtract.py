@@ -24,9 +24,12 @@ for y in range(background.shape[0]):
     # Jika menggunakan Grayscale
         color_thresholded = 255 if abs(int(background[y][x])-int(f1[y][x]))>25 else 0
         color = abs(int(background[y][x])-int(f1[y][x]))
-        print('y: ',y,' x: ',x,' : ', color)
         result[y][x] = color
         result_thresholded[y][x] = color_thresholded
+
+result_thresholded = cv2.dilate(result_thresholded, np.ones((3,3), np.uint8),iterations=1)
+result_thresholded = cv2.erode(result_thresholded, np.ones((2,2), np.uint8),iterations=3)
+result_thresholded = cv2.dilate(result_thresholded, np.ones((3,3), np.uint8),iterations=5)
 cv2.imwrite('vtest-result.jpg', result_thresholded)
 cv2.imshow('Result', result)
 cv2.imshow('Thresholded', result_thresholded)

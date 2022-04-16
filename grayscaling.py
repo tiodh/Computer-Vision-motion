@@ -29,8 +29,6 @@ for y in range(img.shape[0]):
         green = img[y][x][1]/3
         blue = img[y][x][0]/3
         color = blue+green+red
-        print('y: ', y, ' x: ',x,' : ',color)
         result[y][x] = color
-        
 cv2.imshow('Grayscale',result)
 cv2.waitKey(0)
