@@ -1,6 +1,3 @@
-from turtle import shape
-
-from sklearn import cluster
 import cv2
 import numpy as np
 from sklearn.cluster import DBSCAN
@@ -38,7 +35,6 @@ for i in labels:
     result[max_y, min_x:max_x] = [0,255,0]
     result[min_y:max_y, min_x] = [0,255,0]
     result[min_y:max_y, max_x] = [0,255,0]
-
 cv2.imshow('Thresholded', img)
 cv2.imshow('Localization', result)
 cv2.waitKey(0)
